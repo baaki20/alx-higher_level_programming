@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# Get the Python code from environment var
+py_code="$PYCODE"
+
+# Create a temporary Python script file
+temp_py_script=$(mktemp)
+
+# Write the Python code to the temporary script file
+echo "$py_code" > "$temp_py_script"
+
+# Run the Python script
+python "$temp_py_script"
+
+# Clean up: Delete the temporary script file
+rm "$temp_py_script"
